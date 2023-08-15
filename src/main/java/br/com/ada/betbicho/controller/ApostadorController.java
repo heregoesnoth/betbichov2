@@ -29,12 +29,13 @@ public class ApostadorController {
         this.apostadorService = apostadorService;
     }
 
-    @Operation(summary = "Summary do cadastrar apostador", description = "Description do cadastrar apostador")
+    @Operation(summary = "Cadastrar apostador", description = "Endpoint para cadastrar apostador")
     @PostMapping
     public ResponseEntity<ApostadorResponseDTO> cadastrar(@RequestBody @Valid ApostadorRequestDTO apostadorRequestDTO){
         return ResponseEntity.ok(this.apostadorService.salvar(apostadorRequestDTO));
     }
 
+    @Operation(summary = "Consultor apostador", description = "Consulta apostador por id")
     @GetMapping("/{id}")
     public ResponseEntity<Apostador> buscarporId(@PathVariable Long id){
         return ResponseEntity.ok(this.apostadorService.buscarPorId(id));
