@@ -46,6 +46,7 @@ public class ApostadorController {
         return ResponseEntity.ok(this.apostadorService.buscarIdOuNome(nome, id));
     }
 
+    @Operation(summary = "Atualizar apostador", description = "Consulta apostador por id")
     @PutMapping("/{id}")
     public ResponseEntity<ApostadorResponseDTO> atualizar(@RequestBody ApostadorRequestDTO apostadorRequestDTO, @PathVariable Long id){
         return ResponseEntity.ok(this.apostadorService.atualizar(apostadorRequestDTO, id));
